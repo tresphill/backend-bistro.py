@@ -2,6 +2,9 @@ from typing import Optional
 from pydantic import BaseModel, EmailStr
 from models import Base
 
+class Base(BaseModel):
+    pass
+
 class MenuSchema(Base):
     id: int
     title: str | None

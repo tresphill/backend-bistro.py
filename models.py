@@ -10,8 +10,10 @@ class Menu(Base):
     __tablename__ = "Menu"
 
     id: Mapped[int] = mapped_column(primary_key = True, index = True)
-    title: Mapped[str] = mapped_column(String)
-    description: Mapped[str] = mapped_column(String)
-    price: Mapped[int] = mapped_column(Integer)
-    spicy_level: Mapped[int] = mapped_column(Integer)
+    title: Mapped[str] = Column(String, default="Title")
+    description: Mapped[str] = Column(String, default="Description")
+    price: Mapped[int] = Column(Integer, default="Price")
+    spicy_level: Mapped[int] = Column(Integer, default="Spiciness")
 
+    def __repr__(self) -> str:
+        return f"MenuItem(id={self.id!r}, title={self.title!r}, desciption={self.description!r}, price={self.price!r}, spicy_level={self.spicy_level!r})"

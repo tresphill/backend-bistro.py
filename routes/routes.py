@@ -16,7 +16,7 @@ def get_db():
     finally:
         db.close()
 
-@router.get("/all", response_model=List[schemas.Menu_Item_Schemas])
+@router.get("/all", response_model=List[schemas.MenuSchema])
 def get_items(db: Session = Depends(get_db)):
     items = crud.get_menu_items(db)
     return items
